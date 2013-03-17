@@ -1,5 +1,7 @@
 var ProjectsApp = ProjectsApp || {};
 
+// Replace with RJS (q104)
+
 require([ "kendo.autocomplete.min", "kendo.listview.min", 
 	"kendo.datepicker.min", "kendo.view.min", "kendo.router.min"], function initApp() {
 	var projectsList, projectsContainer, hiddenContainer,
@@ -13,15 +15,16 @@ require([ "kendo.autocomplete.min", "kendo.listview.min",
 	
 	/* KENDO SPA Features */
 
+	// Create a layout (q106)
 	var layout = new kendo.Layout($('#projectLayout').html());
 	layout.render(projectsContainer);
 
-	// Define Views
+	// Define Views (q107)
 	var projectsList = new kendo.View("projectsListView");
 	var newProjects = new kendo.View("newProjectView");
 	var reports = new kendo.View("reportsView");
 
-	// Router and Routes
+	// Router and Routes (q108)
 	var router = new kendo.Router();
 	
 	//Projects list route
@@ -45,5 +48,6 @@ require([ "kendo.autocomplete.min", "kendo.listview.min",
 	});
 
 	router.start();
+
 	kendo.bind(document.body.children);
 });

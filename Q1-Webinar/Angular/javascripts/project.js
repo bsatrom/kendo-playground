@@ -18,7 +18,7 @@ var ProjectsApp = ProjectsApp || {};
 	}
 
 	function CreateCtrl($scope, $location) {
-		// Create Project Create logic here
+		// Create Project Create logic here (q111)
 		$scope.model = kendo.observable({
 			categories:  categories
 		})

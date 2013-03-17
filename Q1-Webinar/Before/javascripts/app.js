@@ -47,9 +47,45 @@ var ProjectsApp = ProjectsApp || {};
 	});
 
 	// Create Charts
-	// Sparklines (q101)	
+	// Sparklines (q101)
+	$('#completed-week').kendoSparkline(ProjectsApp.completedData);
+	$("#created-week").kendoSparkline({
+        type: "column",
+        data: ProjectsApp.createdData,
+        tooltip: {
+            format: "{0} new projects"
+        }
+    });	
 
     //Bullet Graphs (q102)
+    $("#goal-completed").kendoChart({
+        legend: {
+            visible: false
+        },
+        series: [{
+            type: "bullet",
+            data: [15, 25]
+        }],
+        chartArea: {
+            margin: {
+                left: 0
+            }
+        },
+        valueAxis: [{
+            plotBands: [{
+                from: 0, to: 10, color: "red", opacity: 0.3
+            }, {
+                from: 10, to: 25, color: "yellow", opacity: 0.3
+            }, {
+                from: 25, to: 50, color: "green", opacity: 0.5
+            }],
+            majorGridLines: {
+                visible: false
+            },
+            min: 0,
+            max: 50
+        }]
+    });
     
 
 	kendo.bind(document.body.children);
