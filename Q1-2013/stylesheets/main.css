@@ -1,0 +1,51 @@
+.body {
+	margin-top: 20px;
+}
+
+.hidden {
+	position: absolute;
+	left: -9999px;
+}
+
+ul li {
+	list-style: none;
+	margin: 5px;
+}
+
+#spaContainer {
+    position: relative;
+    width: 700px;
+    height: 430px;
+    margin: 0 auto 15px auto;
+    padding: 10px;
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    border: 2px solid rgba(255,255,255,0.2);
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.chart-wrapper {
+    margin: 0 auto 30px auto;
+    padding: 0 30px 30px 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+td.item {
+    line-height: 65px;
+    width: 20px;
+    text-align: right;
+    padding-bottom: 22px;
+}
+
+td.chart {
+    width: 430px;
+}
+
+.k-chart {
+    height: 65px;
+    width: 400px;
+}

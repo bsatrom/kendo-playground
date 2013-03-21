@@ -1,9 +1,187 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-	<title>Q1 Release Demos</title>
+  <meta charset="UTF-8">
+  <title>Projects</title>
+  <link href="stylesheets/lib/kendo.common.min.css" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/lib/kendo.default.min.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="stylesheets/main.css">
 </head>
 <body>
 
+  <!-- Navbar -->
+  <div class="navbar navbar-static-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <span class="brand">
+          <a href="#">Kendo UI Q1 Demos</a>
+        </span>
+        <ul class="nav">
+          <li>
+            <a href="http://demos.kendoui.com">Demos Site</a>
+          </li>
+          <li>
+            <a href="http://docs.kendoui.com">Docs Site</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="container body">
+    <div class="row">
+      <div class="span3">
+        <ul class="nav nav-list sidebar">
+          <li class="nav-header">Wrappers</li>
+          <li>
+            <a href="#">PHP Wrappers</a>            
+          </li>         
+        </ul>
+        <ul class="nav nav-list sidebar">
+          <li class="nav-header">Framework Features</li>
+		  <li>
+            <a href="#">RequireJS Support</a>            
+          </li>
+          <li>
+            <a href="#">SPA Support</a>            
+          </li>
+      	</ul>
+        <ul class="nav nav-list sidebar">
+          <li class="nav-header">Kendo UI Web</li>
+          <li>
+            <a href="#/multiselect">MultiSelect <br/> &amp; ColorPicker</a>            
+          </li>
+          <li>
+            <a href="#/tooltip">Tooltip</a>            
+          </li>
+        </ul>
+        <ul class="nav nav-list sidebar">
+          <li class="nav-header">Kendo UI DataViz</li>
+          <li>
+            <a href="#/sparklines">Sparklines</a>            
+          </li>
+          <li>
+            <a href="#/bulletgraph">Buletgraphs</a>            
+          </li>
+        </ul>
+        <ul class="nav nav-list sidebar">
+          <li class="nav-header">Kendo UI Mobile</li>
+          <li>
+            <a href="#">Windows Phone 8</a>            
+          </li>
+          <li>
+            <a href="#">ListView Filtering</a>            
+          </li>
+        </ul>
+      </div>
+      <div class="span9">
+    	<div id="spaContainer"></div>
+
+        <div id="mainLayout">
+          <div id="display"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Views -->
+  <script id="multiselectView" type="text/x-kendo-tmpl">
+  	<h2>New Project</h2>
+    <form name="myForm" class="well">
+      <div class="control-group">
+        <label>Project Name</label>
+        <input width="1300" type="text" name="name">      
+      </div>
+      <div class="control-group">
+        <label>Category</label>
+        <select id="categories" 
+          multiple="multiple"
+          data-placeholder="Select categories...">
+        </select> 
+      </div>
+      <div class="control-group">
+        <label>Priority</label>
+        <input id="priority" type="color" value="#ff0000"></div> 
+      </div>
+      <div class="control-group">
+        <label>Due Date</label>
+        <input type="date" 
+          data-role="datepicker" >
+      </div>
+      <br>
+        <a href="#/" class="cancel btn">Cancel</a>
+        <a href="#/save" class="save btn btn-primary">Save</a>
+    </form>
+  </script>
+
+  <script id="tooltipView" type="text/x-kendo-tmpl">
+  	<div id="projects">
+  		<h3>Projects</h3>
+  		<ul id="projectsList" class="well">
+  			<li>
+  				<input type="checkbox" checked />
+  				<span title="[Work] - Due in 3 days">Watch Harlem Shake Videos on You Tube
+  				</span>
+  			</li>
+  			<li>
+  				<input type="checkbox" />
+  				<span title="[Work] - Due in 5 days">Record Harlem Shake Videos with the Kendo Team
+  				</span>
+  			</li>
+  			<li>
+  				<input type="checkbox" />
+  				<span title="[Personal] - Due in 17 days">Get Burke a Horsehead mask for his birthday
+  				</span>
+  			</li>
+  			<li>
+  				<input type="checkbox" />
+  				<span title="[Fun] - Due in 1 month">Build a killer Hybrid Mobile app with Kendo UI Mobile and Icenium
+  				</span>
+  			</li>
+  		</ul>
+  	</div>
+  </script>
+	
+  <script id="sparklinesView" type="text/x-kendo-tmpl">
+  	<div id="projectReports" class="chart-wrapper k-content">
+          <h2>Issue Reports</h2>
+          <div>
+            <h3>Project Issue Statistics</h3>
+            <table class="history">
+              <tr>
+                <td>Issues Closed, by Week</td>
+                <td><span id="completed-week"></span></td>
+              </tr>
+              <tr>
+                <td>New Isssues, by Week </td>
+                <td><span id="created-week"></span>
+
+              </tr>
+            </table>
+        </div>
+    </div>  
+  </script>
+
+  <script id="bulletgraphView" type="text/x-kendo-tmpl">
+	  <div class="chart-wrapper k-content">
+	  	<h3>Current Goals</h3>
+	    <table class="history">
+	      <tr>
+	        <td>Issues Closed this Week</td>
+	        <td><div id="goal-completed"></div><td>
+	      </tr>
+	      <tr>
+	      	<td>New Issues This Week</td>
+	      	<td><div id="goal-new"></div></td>
+	      </tr>              
+	    </table>
+	  </div>
+  </script>
+  
+  <script src="javascripts/lib/jquery.min.js"></script>
+  <script src="javascripts/lib/kendo.all.min.js"></script>
+  <script src="javascripts/app.js"></script>
 </body>
 </html>

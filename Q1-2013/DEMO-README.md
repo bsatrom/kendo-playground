@@ -2,34 +2,31 @@
 
 ## Outline
 
-1. PHP and JSP Helpers
+1. PHP and JSP Helpers - DONE
 
-	- Sample from Derick's PHP Series - TODO: Get Snippet
-	 
-	- Same sample from Burke's JSP Series - TODO: Get Snippet
 
-2. What's new in Kendo UI Web
-	### Widgets
-	
-	- Multi-select widget (Demo w/ JSBin) - [Kendo Demo](http://kendobuild/staging/web/multiselect/index.html)
-	
-	- ColorPicker (Demo w/ JSBin) - [Kendo Demo](http://kendobuild/staging/web/colorpicker/flatcolorpicker.html)
-	
-	- Tooltip (Demo w/ JSBin) - [Kendo Demo](http://kendobuild/staging/web/tooltip/index.html)
+2. New Kendo UI Framework Features - DONE
 
 	### Features
-	- RJS Support (Demo Snippet & Link to Getting Started Doc) - TODO: Get Sample and Doc Link
+	- RJS Support (Demo Snippet & Link to Getting Started Doc) - DONE: Use Snippet from recording & Doc Link
 	
-	- SPA Prototype (Demo Snippet w/ JSBin & Link to Getting Started Doc) - TODO: Not Done. Get Sample and Doc Link
+	- SPA Prototype (Demo Snippet w/ JSBin & Link to Getting Started Doc) - DONE: Use Snippet from recording and Doc Link
 
-3. What's new in Kendo UI DataViz
+2. What's new in Kendo UI Web - DONE
+	### Widgets
+	
+	- Multi-select widget (Demo w/ JSBin) - DEMO DONE
+	
+	- ColorPicker (Demo w/ JSBin) - DEMO DONE
+	
+	- Tooltip (Demo w/ JSBin) - DEMO DONE
+	
+
+3. What's new in Kendo UI DataViz - DONE
 	### Charts
-	- Sparklines (Demo w/ JSBin) - [Kendo Demo](http://kendobuild/staging/dataviz/sparklines/index.html)
+	- Sparklines (Demo w/ JSBin) - DEMO DONE
 
-	- Bulletgraph and Databars (Demo w/ JSBin) - [Kendo Demo](http://kendobuild/staging/dataviz/bullet-charts/index.html)
-		- http://mbostock.github.com/protovis/ex/bullet.html
-		- http://kb.tableausoftware.com/articles/knowledgebase/bulletgraph
-		- http://demos.telerik.com/silverlight/#BulletGraph/FirstLook
+	- Bulletgraph (Demo w/ JSBin) - DEMO DONE
 
 	### Features
 	- Interactive feature polish (**what should I say specifically?**)
@@ -39,11 +36,42 @@
 
 4. What's new in Kendo UI Mobile
 	### Features
-	- Windows Phone 8 UI Support (Demo w/ JSBin & Link to expectations post)
-		- [Kendo Demos](http://kendobuild/staging/mobile/actionsheet/index.html#/)
+	- Windows Phone 8 UI Support - DONE: Use Screens from Burke's sample (sent an email)
 
-	- ListView Filtering (Demo w/ JSBin)
-		- [Kendo Demos](http://kendobuild/staging/mobile/listview/filtering.html#/)
+	- ListView Filtering - DONE, use this code sample below...
+
+	var dataSource = new kendo.data.DataSource({
+		pageSize: 12,
+		serverPaging: true,
+		serverFiltering: true,
+		transport: {
+			read: {
+				url: "http://search.twitter.com/search.json", 
+				dataType: "jsonp"
+			},
+			parameterMap: function(options) {
+ 				var filter = options.filter ? options.filter.filters[0].value : "#kendoui";
+				var parameters = {
+					q: filter, 
+					rpp: options.pageSize,
+					page: options.page 
+				}
+
+				return parameters;
+			}
+		},
+		schema: {
+			data: "results" 
+		}
+	});
+
+	$("#listView").kendoMobileListView({
+		dataSource: dataSource,
+		template: $("#itemTemplate").text(),
+		filterable: true,
+		endlessScroll: true,
+		scrollTreshold: 30 
+	});
 
 5. What else?
 	### Features
